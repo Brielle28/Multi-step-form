@@ -24,18 +24,18 @@ export const YearlyAddOns = [
         id: 1,
         title: "online service",
         description: "Access to multi-player games",
-        pricing: "+$10/mo"
+        pricing: "+$10/yr"
     },
     {
         id:2,
         title: "Larger Storage",
         description: "Extra 1TB of cloud storage",
-        pricing: "+$20/mo"
+        pricing: "+$20/yr"
     },
     {
         id:3,
         title: "Custmizable Profit",
         description: "Custom theme on your profile",
-        pricing: "+$20/mo"
+        pricing: "+$20/yr"
     }
 ]

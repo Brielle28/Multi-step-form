@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Monthlyplans } from "../../Utils/Plan";
+import { UserContext } from "../../Context/UserProvider";
 
 const MonthlyPlan = () => {
+  const { formPlan, toggleplan } = useContext(UserContext);
+
+  const handleToggleplan = (plan) => {
+    toggleplan(plan);
+  };
+
+  console.log(formPlan)
+  console.log(formPlan.length, "this is the length")
   return (
     <>
       <div className="flex items-start gap-3">
         {Monthlyplans.map((item) => (
-          <div className="flex flex-col items-start gap-[35px] border-2 border-gray-300 p-2 w-[110px] rounded-[10px]">
+          <div
+            className="flex flex-col items-start gap-[35px] border-2 border-gray-300 p-2 w-[110px] rounded-[10px]"
+            onClick={() => handleToggleplan(item)}
+          >
             <div>
               <img
                 src={item.icon}
