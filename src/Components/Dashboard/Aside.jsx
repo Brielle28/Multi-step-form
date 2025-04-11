@@ -1,49 +1,43 @@
-import React from "react";
 import { SidebarItems } from "../Utils/SidebarItems";
 import { Link, NavLink } from "react-router-dom";
 
 const Aside = () => {
-
-  const navLinkStyles = ({ isActive }) =>{
-    return {
-      backgroundColor: isActive? "#6fdf9c" : "transparent",
-      borderRadius: isActive? "50px" : "0px",
-    };
-  }
+  const navLinkStyles = ({ isActive }) => ({
+    backgroundColor: isActive ? "#6fdf9c" : "transparent",
+    borderRadius: isActive ? "50px" : "0px",
+  });
 
   return (
-    <>
-      <div
-        className="bg-cover bg-center h-full w-[30%] rounded-[10px] pb-[250px]"
-        style={{ backgroundImage: `url('/bg-sidebar-desktop.svg')` }}
-      >
-        <div className="flex flex-col items-center text-start w-full">
-          <ul className="flex flex-col w-full mt-10">
-            {SidebarItems.map((item) => (
+    <div
+      className="bg-cover bg-center w-full md:w-[45%] h-auto md:h-[510px] md:rounded-[10px] fixed top-0 left-0 right-0 z-10 rounded-b-[20px]"
+      style={{ backgroundImage: `url('/bg-sidebar-desktop.svg')` }}
+    >
+      <div className="flex flex-col items-center w-full p-4 text-start">
+        <ul className="flex flex-row items-start justify-center w-full gap-4 mt-4 md:flex-col md:items-start md:justify-start md:gap-6 md:mt-10">
+          {SidebarItems.map((item) => (
+            <li key={item.id} className="">
               <Link to={item.link}>
-                <li key={item.id} className="pb-3 pl-10">
-                  <div className="flex flex-row items-center gap-5">
-                    <NavLink style={navLinkStyles} to={item.link}>
-                    <div className="flex items-center justify-center text-center text-white h-10 w-10 rounded-full border-2">
+                <div className="flex flex-col items-center justify- md:flex-row md:gap-5">
+                  <NavLink style={navLinkStyles} to={item.link}>
+                    <div className="flex items-center justify-center w-10 h-10 text-center text-white border-2 rounded-full">
                       {item.id}
                     </div>
-                    </NavLink>
-                    <div className="flex flex-col items-start text-white">
-                      <h6 className="font-serif font-extralight text-[13px]">
-                        STEP {item.id}
-                      </h6>
-                      <Link to={item.link} className="font-poppins font-bold">
-                        {item.title}
-                      </Link>
-                    </div>
+                  </NavLink>
+                  <div className="flex flex-col items-start text-center text-white md:flex justfiy-center">
+                    <h6 className="hidden md:flex text-[13px] font-serif font-extralight">
+                      STEP {item.id}
+                    </h6>
+                    <span className="text-[10px] mt-3 md:mt-0 md:text-[15px] md:font-bold font-poppins">
+                      {item.title}
+                    </span>
                   </div>
-                </li>
+                </div>
               </Link>
-            ))}
-          </ul>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 
