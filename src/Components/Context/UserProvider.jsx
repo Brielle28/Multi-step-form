@@ -1,4 +1,5 @@
-import React, { createContext, useState, useContext } from "react";
+// UserProvider.jsx
+import  { createContext, useState } from "react";
 
 export const UserContext = createContext();
 
@@ -16,26 +17,15 @@ const UserProvider = ({ children }) => {
   const toggleplan = (plan) => {
     setFormPlan(plan);
   };
-  // Add or remove plan
-  // const toggleplan = (plan) => {
-  //   setFormPlan((prevplan) => {
-  //     if (prevplan.includes(plan)) {
-  //       return prevplan.filter((item) => item !== plan);
-  //     } else {
-  //       return [...prevplan, plan];
-  //     }
-  //   });
-  // };
-
-  
   
   // State for selected add-ons
   const [selectedAddOns, setSelectedAddOns] = useState([]);
-  // Add or remove add-ons
+  // Add or remove add-ons by comparing IDs instead of object references
   const toggleAddOn = (addOn) => {
     setSelectedAddOns((prevAddOns) => {
-      if (prevAddOns.includes(addOn)) {
-        return prevAddOns.filter((item) => item !== addOn);
+      const isSelected = prevAddOns.some(item => item.id === addOn.id);
+      if (isSelected) {
+        return prevAddOns.filter((item) => item.id !== addOn.id);
       } else {
         return [...prevAddOns, addOn];
       }

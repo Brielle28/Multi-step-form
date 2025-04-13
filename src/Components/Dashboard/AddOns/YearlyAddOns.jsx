@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+// YearlyAddOns.jsx
+import  { useContext } from "react";
 import { YearlyAddOns } from "../../Utils/AddsOn";
 import { UserContext } from "../../Context/UserProvider";
 
@@ -9,27 +10,38 @@ const YearlyAddOn = () => {
     toggleAddOn(addOn);
   };
 
+  const isSelected = (item) => {
+    return selectedAddOns.some(addon => addon.id === item.id);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col gap-4">
       {YearlyAddOns.map((item) => (
         <div
           key={item.id}
-          className="flex flex-row items-center justify-center text-center gap-5 w-full max-w-md mb-4 p-4 border rounded"
+          className={`flex items-center border rounded-lg p-4 cursor-pointer transition-all hover:border-blue-500 ${
+            isSelected(item) ? "border-blue-500 bg-blue-50" : "border-gray-300"
+          }`}
+          onClick={() => handleToggle(item)}
         >
-          <div className="form-control">
+          <div className="mr-4">
             <input
               type="checkbox"
               className="checkbox checkbox-info"
-              checked={selectedAddOns.includes(item)}
-              onChange={() => handleToggle(item)}
+              checked={isSelected(item)}
+              onChange={(e) => {
+                // Prevent the click from propagating to avoid double toggle
+                e.stopPropagation();
+                handleToggle(item);
+              }}
             />
           </div>
-          <div className="flex flex-col items-start justify-center text-left">
-            <h3 className="text-lg font-semibold">{item.title}</h3>
-            <p className="text-sm">{item.description}</p>
+          <div className="flex-grow">
+            <h3 className="font-semibold text-blue-900">{item.title}</h3>
+            <p className="text-sm text-gray-500">{item.description}</p>
           </div>
-          <div className="text-right">
-            <p className="text-base font-medium">{item.pricing}</p>
+          <div className="font-medium text-blue-600 whitespace-nowrap">
+            {item.pricing}
           </div>
         </div>
       ))}
