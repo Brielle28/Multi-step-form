@@ -6,17 +6,13 @@ import Plan from "./Components/Dashboard/Plan/Plan";
 import AddOns from "./Components/Dashboard/AddOns/AddOns";
 import Summary from "./Components/Dashboard/Summary/Summary";
 import UserProvider from "./Components/Context/UserProvider";
-import LastStep from "./Components/LastStep/LastStep";
+import LastStep from "./Components/Dashboard/LastStep/LastStep";
 
 const routing = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      // {
-      //   path: "",
-      //   element: <PersonalInfo />
-      // }, // Using path: "",
       {
         index: true,
         element: <PersonalInfo />,
