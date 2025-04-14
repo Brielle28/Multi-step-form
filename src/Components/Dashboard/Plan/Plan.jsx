@@ -62,9 +62,9 @@ const Plan = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col w-full px-4 mx-auto text-black md:px-0 md:max-w-xl">
+    <div className="flex flex-col justify-center w-full px-4 mx-auto text-black md:px-0 md:max-w-xl">
       <div className="mb-6">
-        <h1 className="mb-2 text-2xl font-bold sm:text-3xl md:text-4xl">Select your Plan</h1>
+        <h1 className="mt-6 mb-2 text-2xl font-bold sm:text-3xl md:text-4xl md:mt-10">Select your Plan</h1>
         <p className="text-sm text-gray-600 sm:text-base">
           You have the option of monthly or yearly billing
         </p>
@@ -95,7 +95,7 @@ const Plan = () => {
         </div>
       </div>
       
-      <div className="flex items-center justify-between w-full pt-6 mt-6 border-t border-gray-200">
+      <div className="flex items-center justify-between w-full pt-6 mt-5">
         <Link to="/personalinfo">
           <button className="font-medium text-blue-700 transition-colors hover:text-blue-800">
             Go Back

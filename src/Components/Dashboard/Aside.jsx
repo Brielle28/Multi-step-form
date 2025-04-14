@@ -9,7 +9,7 @@ const Aside = () => {
 
   return (
     <div
-      className="bg-cover bg-center w-full md:w-[45%] h-auto md:h-[510px] md:rounded-[10px] fixed top-0 left-0 right-0 z-10 rounded-b-[20px]"
+      className="bg-cover bg-center w-full md:w-[45%] h-auto md:h-[510px] md:rounded-[10px] fixed top-0 left-0 right-0 z-10 md:static md:z-auto rounded-b-[20px]"
       style={{ backgroundImage: `url('/bg-sidebar-desktop.svg')` }}
     >
       <div className="flex flex-col items-center w-full p-4 text-start">
